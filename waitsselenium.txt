@@ -1,0 +1,47 @@
+three types of wait in selenium
+*implicit
+*explicit
+*fluent
+
+IMPLICIT
+       It is not advisable to use because it more time for each line
+       eg. if there is 10lines implicit declared on the first line while execution it will wait for 
+       the time which is given in the implicit wait for every line.
+       driver.manage().timeouts().implicitlywait(arg1,arg2);
+
+EXPLICIT
+        It will wait for that particular element till that condition satisfies on the particular amount of 
+        time given in that condition
+        drawback= explicit wait will wait for the whole amount of time given in the condition even the page load 
+        very quickly the explicit wait will wait until the time given.
+        WebDriverwait wait=new WebDriverwait(driver,200);
+        wait.until(ExpectedConditions.elementtobeclickable(locator));
+FLUENT
+      it will wait for that particular element with certain condition 1.pollingevery(30sec)
+      2.timeout(5minutes) the selenium will check every 30sec once for that particular element is present or not
+      if the element is present it will close so the remaining amount of time will be saved(those extra time is saved).
+      ignore commant is used during the check time because to handle exeption.
+ public void waitForAnElementToClick(WebDriver driver, WebElement element) throws Exception {
+    wait = new FluentWait<WebDriver>(driver);
+    wait.pollingEvery(500, TimeUnit.MILLISECONDS);
+    wait.withTimeout(5, TimeUnit.MINUTES);
+    wait.ignoring(NoSuchElementException.class);
+    wait.until(ExpectedConditions.visibilityOf(element));
+    wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+      If we want to fetch value from the webpage we can use .gettext();
+      If we want to fetch the value of attribute from webpage we can use .getattribute();
+
+RANDOM NAME GENERATOR IN JAVA
+FOLDER CRETATION IN JAVA
+ SCREENSHOT:
+           File screenshot=((Takesscreenshot)driver.).getscreenshotAs(outputtype.FILE);
+           try{
+              Fileutils.copyfile(screenshot, new File("location"+builder+"format")
+      
+
+     
+        
+
+
