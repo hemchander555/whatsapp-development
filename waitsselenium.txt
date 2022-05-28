@@ -39,6 +39,9 @@ FOLDER CRETATION IN JAVA
            File screenshot=((Takesscreenshot)driver.).getscreenshotAs(outputtype.FILE);
            try{
               Fileutils.copyfile(screenshot, new File("location"+builder+"format")
+                
+                
+                adding just to information
       
 
      
